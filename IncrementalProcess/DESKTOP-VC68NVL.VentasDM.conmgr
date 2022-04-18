@@ -1,0 +1,10 @@
+﻿<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="DESKTOP-VC68NVL.VentasDM"
+  DTS:DTSID="{35848EDC-AA0A-4BF7-BC34-974273C32177}"
+  DTS:CreationName="ADO.NET:System.Data.SqlClient.SqlConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectionString="Data Source=DESKTOP-VC68NVL;Initial Catalog=VentasDM;Integrated Security=True;Application Name=SSIS-IncrementalProcess-{35848EDC-AA0A-4BF7-BC34-974273C32177}DESKTOP-VC68NVL.VentasDM;" />
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

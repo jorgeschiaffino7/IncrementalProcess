@@ -1,0 +1,1838 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="4/18/2022 7:18:02 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-VC68NVL"
+  DTS:CreatorName="DESKTOP-VC68NVL\Usuario"
+  DTS:DTSID="{B33D6D19-A530-48EA-8B20-FBAC75FF89FB}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.180"
+  DTS:LocaleID="11274"
+  DTS:ObjectName="Package"
+  DTS:PackageType="5"
+  DTS:VersionBuild="1"
+  DTS:VersionGUID="{8026FAEB-5E9A-41BF-A3CB-6970226D36A2}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Incr Products"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tarea Flujo de datos"
+      DTS:DTSID="{B248F677-84BD-4C6B-B130-D61122A23EAA}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Incr Products"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Incr Products\Combinación de mezcla"
+              componentClassID="Microsoft.MergeJoin"
+              contactInfo="Combinación de mezcla;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;1"
+              description="Combina dos flujos de datos ordenados en uno solo mediante la combinación FULL, LEFT o INNER. Se recomienda esta transformación cuando se pueden ordenar los flujos de datos en sus orígenes."
+              name="Combinación de mezcla"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el tipo de combinación que se debe realizar."
+                  name="JoinType"
+                  typeConverter="JoinType">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el número de columnas de la clave de ordenación."
+                  name="NumKeyColumns">1</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si los valores NULL se tratan como valores iguales."
+                  name="TreatNullsAsEqual">true</property>
+                <property
+                  dataType="System.Int32"
+                  description="Indica la cantidad máxima solicitada de búferes por entrada antes del bloqueo."
+                  name="MaxBuffersPerInput">5</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Incr Products\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla]"
+                  hasSideEffects="true"
+                  name="Entrada izquierda de combinación de mezcla">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Incr Products\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[idProducto]"
+                      cachedDataType="i4"
+                      cachedName="idProducto"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\Incr Products\List 1.Outputs[Salida de ordenación].Columns[idProducto]" />
+                    <inputColumn
+                      refId="Package\Incr Products\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[idSeccion]"
+                      cachedDataType="i4"
+                      cachedName="idSeccion"
+                      lineageId="Package\Incr Products\List 1.Outputs[Salida de ordenación].Columns[idSeccion]" />
+                    <inputColumn
+                      refId="Package\Incr Products\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[NombreSeccion]"
+                      cachedDataType="wstr"
+                      cachedLength="30"
+                      cachedName="NombreSeccion"
+                      lineageId="Package\Incr Products\List 1.Outputs[Salida de ordenación].Columns[NombreSeccion]" />
+                    <inputColumn
+                      refId="Package\Incr Products\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[idRubro]"
+                      cachedDataType="i4"
+                      cachedName="idRubro"
+                      lineageId="Package\Incr Products\List 1.Outputs[Salida de ordenación].Columns[idRubro]" />
+                    <inputColumn
+                      refId="Package\Incr Products\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[NombreRubro]"
+                      cachedDataType="wstr"
+                      cachedLength="30"
+                      cachedName="NombreRubro"
+                      lineageId="Package\Incr Products\List 1.Outputs[Salida de ordenación].Columns[NombreRubro]" />
+                    <inputColumn
+                      refId="Package\Incr Products\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[idSubFamilia]"
+                      cachedDataType="i4"
+                      cachedName="idSubFamilia"
+                      lineageId="Package\Incr Products\List 1.Outputs[Salida de ordenación].Columns[idSubFamilia]" />
+                    <inputColumn
+                      refId="Package\Incr Products\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[NombreSubFamilia]"
+                      cachedDataType="wstr"
+                      cachedLength="30"
+                      cachedName="NombreSubFamilia"
+                      lineageId="Package\Incr Products\List 1.Outputs[Salida de ordenación].Columns[NombreSubFamilia]" />
+                    <inputColumn
+                      refId="Package\Incr Products\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[idFamilia]"
+                      cachedDataType="i4"
+                      cachedName="idFamilia"
+                      lineageId="Package\Incr Products\List 1.Outputs[Salida de ordenación].Columns[idFamilia]" />
+                    <inputColumn
+                      refId="Package\Incr Products\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[NombreFamilia]"
+                      cachedDataType="wstr"
+                      cachedLength="30"
+                      cachedName="NombreFamilia"
+                      lineageId="Package\Incr Products\List 1.Outputs[Salida de ordenación].Columns[NombreFamilia]" />
+                    <inputColumn
+                      refId="Package\Incr Products\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[idCategoria]"
+                      cachedDataType="i4"
+                      cachedName="idCategoria"
+                      lineageId="Package\Incr Products\List 1.Outputs[Salida de ordenación].Columns[idCategoria]" />
+                    <inputColumn
+                      refId="Package\Incr Products\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[NombreCategoria]"
+                      cachedDataType="wstr"
+                      cachedLength="30"
+                      cachedName="NombreCategoria"
+                      lineageId="Package\Incr Products\List 1.Outputs[Salida de ordenación].Columns[NombreCategoria]" />
+                    <inputColumn
+                      refId="Package\Incr Products\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[NombreProducto]"
+                      cachedDataType="wstr"
+                      cachedLength="30"
+                      cachedName="NombreProducto"
+                      lineageId="Package\Incr Products\List 1.Outputs[Salida de ordenación].Columns[NombreProducto]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\Incr Products\Combinación de mezcla.Inputs[Entrada derecha de combinación de mezcla]"
+                  hasSideEffects="true"
+                  name="Entrada derecha de combinación de mezcla">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Incr Products\Combinación de mezcla.Inputs[Entrada derecha de combinación de mezcla].Columns[IdProducto]"
+                      cachedDataType="i4"
+                      cachedName="IdProducto"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\Incr Products\List 2.Outputs[Salida de ordenación].Columns[IdProducto]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Incr Products\Combinación de mezcla.Outputs[Salida de combinación de mezcla]"
+                  isSorted="true"
+                  name="Salida de combinación de mezcla">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Incr Products\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[idSeccion]"
+                      dataType="i4"
+                      lineageId="Package\Incr Products\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[idSeccion]"
+                      name="idSeccion">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="La columna de entrada asociada a esta columna de salida"
+                          name="InputColumnID">#{Package\Incr Products\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[idSeccion]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Incr Products\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[NombreSeccion]"
+                      dataType="wstr"
+                      length="30"
+                      lineageId="Package\Incr Products\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[NombreSeccion]"
+                      name="NombreSeccion">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="La columna de entrada asociada a esta columna de salida"
+                          name="InputColumnID">#{Package\Incr Products\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[NombreSeccion]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Incr Products\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[idRubro]"
+                      dataType="i4"
+                      lineageId="Package\Incr Products\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[idRubro]"
+                      name="idRubro">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="La columna de entrada asociada a esta columna de salida"
+                          name="InputColumnID">#{Package\Incr Products\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[idRubro]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Incr Products\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[NombreRubro]"
+                      dataType="wstr"
+                      length="30"
+                      lineageId="Package\Incr Products\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[NombreRubro]"
+                      name="NombreRubro">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="La columna de entrada asociada a esta columna de salida"
+                          name="InputColumnID">#{Package\Incr Products\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[NombreRubro]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Incr Products\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[idSubFamilia]"
+                      dataType="i4"
+                      lineageId="Package\Incr Products\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[idSubFamilia]"
+                      name="idSubFamilia">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="La columna de entrada asociada a esta columna de salida"
+                          name="InputColumnID">#{Package\Incr Products\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[idSubFamilia]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Incr Products\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[NombreSubFamilia]"
+                      dataType="wstr"
+                      length="30"
+                      lineageId="Package\Incr Products\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[NombreSubFamilia]"
+                      name="NombreSubFamilia">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="La columna de entrada asociada a esta columna de salida"
+                          name="InputColumnID">#{Package\Incr Products\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[NombreSubFamilia]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Incr Products\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[idFamilia]"
+                      dataType="i4"
+                      lineageId="Package\Incr Products\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[idFamilia]"
+                      name="idFamilia">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="La columna de entrada asociada a esta columna de salida"
+                          name="InputColumnID">#{Package\Incr Products\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[idFamilia]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Incr Products\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[NombreFamilia]"
+                      dataType="wstr"
+                      length="30"
+                      lineageId="Package\Incr Products\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[NombreFamilia]"
+                      name="NombreFamilia">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="La columna de entrada asociada a esta columna de salida"
+                          name="InputColumnID">#{Package\Incr Products\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[NombreFamilia]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Incr Products\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[idCategoria]"
+                      dataType="i4"
+                      lineageId="Package\Incr Products\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[idCategoria]"
+                      name="idCategoria">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="La columna de entrada asociada a esta columna de salida"
+                          name="InputColumnID">#{Package\Incr Products\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[idCategoria]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Incr Products\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[NombreCategoria]"
+                      dataType="wstr"
+                      length="30"
+                      lineageId="Package\Incr Products\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[NombreCategoria]"
+                      name="NombreCategoria">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="La columna de entrada asociada a esta columna de salida"
+                          name="InputColumnID">#{Package\Incr Products\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[NombreCategoria]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Incr Products\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[idProducto]"
+                      dataType="i4"
+                      lineageId="Package\Incr Products\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[idProducto]"
+                      name="idProducto"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="La columna de entrada asociada a esta columna de salida"
+                          name="InputColumnID">#{Package\Incr Products\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[idProducto]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Incr Products\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[NombreProducto]"
+                      dataType="wstr"
+                      length="30"
+                      lineageId="Package\Incr Products\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[NombreProducto]"
+                      name="NombreProducto">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="La columna de entrada asociada a esta columna de salida"
+                          name="InputColumnID">#{Package\Incr Products\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[NombreProducto]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Incr Products\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[IdProductoDM]"
+                      dataType="i4"
+                      lineageId="Package\Incr Products\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[IdProductoDM]"
+                      name="IdProductoDM">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="La columna de entrada asociada a esta columna de salida"
+                          name="InputColumnID">#{Package\Incr Products\Combinación de mezcla.Inputs[Entrada derecha de combinación de mezcla].Columns[IdProducto]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Incr Products\División condicional"
+              componentClassID="Microsoft.ConditionalSplit"
+              contactInfo="División condicional;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;0"
+              description="Enruta filas de datos a diferentes salidas según el contenido de los datos. Se usan condiciones (expresiones de SSIS) para especificar las filas que se van a enrutar. Por ejemplo, se usa para separar los registros que deben limpiarse de los registros listos para ser cargados o para enrutar solamente un subconjunto de registros."
+              name="División condicional"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Incr Products\División condicional.Inputs[Entrada de división condicional]"
+                  description="Entrada en la transformación División condicional"
+                  name="Entrada de división condicional">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Incr Products\División condicional.Inputs[Entrada de división condicional].Columns[IdProductoDM]"
+                      cachedDataType="i4"
+                      cachedName="IdProductoDM"
+                      lineageId="Package\Incr Products\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[IdProductoDM]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Incr Products\División condicional.Outputs[new entry]"
+                  description="Salida 1 de la transformación División condicional"
+                  errorOrTruncationOperation="Cálculo"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="new entry"
+                  synchronousInputId="Package\Incr Products\División condicional.Inputs[Entrada de división condicional]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Especifica la expresión. Esta versión de expresión usa identificadores de linaje en lugar de nombres de columna."
+                      name="Expression">[ISNULL](#{Package\Incr Products\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[IdProductoDM]})</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Especifica la versión descriptiva de la expresión. Esta versión de expresión usa nombres de columna."
+                      expressionType="Notify"
+                      name="FriendlyExpression">ISNULL(IdProductoDM)</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Especifica la posición de la condición en la lista de condiciones que evalúa la transformación. El orden de evaluación es del menor al mayor valor."
+                      name="EvaluationOrder">0</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Incr Products\División condicional.Outputs[Salida predeterminada de división condicional]"
+                  description="Salida predeterminada de la transformación División condicional"
+                  exclusionGroup="1"
+                  name="Salida predeterminada de división condicional"
+                  synchronousInputId="Package\Incr Products\División condicional.Inputs[Entrada de división condicional]">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      name="IsDefaultOut">true</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Incr Products\División condicional.Outputs[Salida de error de división condicional]"
+                  description="Salida de error de la transformación División condicional"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de división condicional"
+                  synchronousInputId="Package\Incr Products\División condicional.Inputs[Entrada de división condicional]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Incr Products\División condicional.Outputs[Salida de error de división condicional].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Incr Products\División condicional.Outputs[Salida de error de división condicional].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Incr Products\División condicional.Outputs[Salida de error de división condicional].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Incr Products\División condicional.Outputs[Salida de error de división condicional].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Incr Products\Insert new products to DM"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Carga datos en una base de datos compatible con ADO.NET que use una vista o tabla de base de datos. Se cargan datos en una tabla nueva o existente. Por ejemplo, se usa un proveedor ADO.NET para ODBC para cargar datos en un destino ODBC.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;2"
+              description="Carga datos en una base de datos compatible con ADO.NET que use una vista o tabla de base de datos. Se cargan datos en una tabla nueva o existente. Por ejemplo, se usa un proveedor ADO.NET para ODBC para cargar datos en un destino ODBC."
+              name="Insert new products to DM"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Nombre de la tabla de la base de datos de destino."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"dbo"."Dim_Producto"</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifique el número de filas por lote. El valor predeterminado es 0, que utiliza el mismo tamaño que el búfer interno de SSIS. "
+                  expressionType="Notify"
+                  name="BatchSize">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito. "
+                  expressionType="Notify"
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Especifica si se debe usar la interfaz SqlBulkCopy para mejorar el rendimiento de las operaciones de inserción masiva. No todos los proveedores admiten esta interfaz."
+                  expressionType="Notify"
+                  name="UseBulkInsertWhenPossible">true</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.ADONETDestination</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Incr Products\Insert new products to DM.Connections[IDbConnection]"
+                  connectionManagerID="{35848EDC-AA0A-4BF7-BC34-974273C32177}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-VC68NVL.VentasDM]"
+                  description="Administrador de conexiones administrado"
+                  name="IDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Incr Products\Insert new products to DM.Inputs[Entrada de destino de ADO NET]"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrada de destino de ADO NET">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Incr Products\Insert new products to DM.Inputs[Entrada de destino de ADO NET].Columns[idSeccion]"
+                      cachedDataType="i4"
+                      cachedName="idSeccion"
+                      externalMetadataColumnId="Package\Incr Products\Insert new products to DM.Inputs[Entrada de destino de ADO NET].ExternalColumns[IdSeccion]"
+                      lineageId="Package\Incr Products\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[idSeccion]" />
+                    <inputColumn
+                      refId="Package\Incr Products\Insert new products to DM.Inputs[Entrada de destino de ADO NET].Columns[NombreSeccion]"
+                      cachedDataType="wstr"
+                      cachedLength="30"
+                      cachedName="NombreSeccion"
+                      externalMetadataColumnId="Package\Incr Products\Insert new products to DM.Inputs[Entrada de destino de ADO NET].ExternalColumns[NombreSeccion]"
+                      lineageId="Package\Incr Products\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[NombreSeccion]" />
+                    <inputColumn
+                      refId="Package\Incr Products\Insert new products to DM.Inputs[Entrada de destino de ADO NET].Columns[idRubro]"
+                      cachedDataType="i4"
+                      cachedName="idRubro"
+                      externalMetadataColumnId="Package\Incr Products\Insert new products to DM.Inputs[Entrada de destino de ADO NET].ExternalColumns[IdRubro]"
+                      lineageId="Package\Incr Products\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[idRubro]" />
+                    <inputColumn
+                      refId="Package\Incr Products\Insert new products to DM.Inputs[Entrada de destino de ADO NET].Columns[NombreRubro]"
+                      cachedDataType="wstr"
+                      cachedLength="30"
+                      cachedName="NombreRubro"
+                      externalMetadataColumnId="Package\Incr Products\Insert new products to DM.Inputs[Entrada de destino de ADO NET].ExternalColumns[NombreRubro]"
+                      lineageId="Package\Incr Products\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[NombreRubro]" />
+                    <inputColumn
+                      refId="Package\Incr Products\Insert new products to DM.Inputs[Entrada de destino de ADO NET].Columns[idSubFamilia]"
+                      cachedDataType="i4"
+                      cachedName="idSubFamilia"
+                      externalMetadataColumnId="Package\Incr Products\Insert new products to DM.Inputs[Entrada de destino de ADO NET].ExternalColumns[IdSubFamilia]"
+                      lineageId="Package\Incr Products\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[idSubFamilia]" />
+                    <inputColumn
+                      refId="Package\Incr Products\Insert new products to DM.Inputs[Entrada de destino de ADO NET].Columns[NombreSubFamilia]"
+                      cachedDataType="wstr"
+                      cachedLength="30"
+                      cachedName="NombreSubFamilia"
+                      externalMetadataColumnId="Package\Incr Products\Insert new products to DM.Inputs[Entrada de destino de ADO NET].ExternalColumns[NombreSubFamilia]"
+                      lineageId="Package\Incr Products\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[NombreSubFamilia]" />
+                    <inputColumn
+                      refId="Package\Incr Products\Insert new products to DM.Inputs[Entrada de destino de ADO NET].Columns[idFamilia]"
+                      cachedDataType="i4"
+                      cachedName="idFamilia"
+                      externalMetadataColumnId="Package\Incr Products\Insert new products to DM.Inputs[Entrada de destino de ADO NET].ExternalColumns[IdFamilia]"
+                      lineageId="Package\Incr Products\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[idFamilia]" />
+                    <inputColumn
+                      refId="Package\Incr Products\Insert new products to DM.Inputs[Entrada de destino de ADO NET].Columns[NombreFamilia]"
+                      cachedDataType="wstr"
+                      cachedLength="30"
+                      cachedName="NombreFamilia"
+                      externalMetadataColumnId="Package\Incr Products\Insert new products to DM.Inputs[Entrada de destino de ADO NET].ExternalColumns[NombreFamilia]"
+                      lineageId="Package\Incr Products\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[NombreFamilia]" />
+                    <inputColumn
+                      refId="Package\Incr Products\Insert new products to DM.Inputs[Entrada de destino de ADO NET].Columns[idCategoria]"
+                      cachedDataType="i4"
+                      cachedName="idCategoria"
+                      externalMetadataColumnId="Package\Incr Products\Insert new products to DM.Inputs[Entrada de destino de ADO NET].ExternalColumns[IdCategoria]"
+                      lineageId="Package\Incr Products\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[idCategoria]" />
+                    <inputColumn
+                      refId="Package\Incr Products\Insert new products to DM.Inputs[Entrada de destino de ADO NET].Columns[NombreCategoria]"
+                      cachedDataType="wstr"
+                      cachedLength="30"
+                      cachedName="NombreCategoria"
+                      externalMetadataColumnId="Package\Incr Products\Insert new products to DM.Inputs[Entrada de destino de ADO NET].ExternalColumns[NombreCategoria]"
+                      lineageId="Package\Incr Products\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[NombreCategoria]" />
+                    <inputColumn
+                      refId="Package\Incr Products\Insert new products to DM.Inputs[Entrada de destino de ADO NET].Columns[idProducto]"
+                      cachedDataType="i4"
+                      cachedName="idProducto"
+                      cachedSortKeyPosition="1"
+                      externalMetadataColumnId="Package\Incr Products\Insert new products to DM.Inputs[Entrada de destino de ADO NET].ExternalColumns[IdProducto]"
+                      lineageId="Package\Incr Products\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[idProducto]" />
+                    <inputColumn
+                      refId="Package\Incr Products\Insert new products to DM.Inputs[Entrada de destino de ADO NET].Columns[NombreProducto]"
+                      cachedDataType="wstr"
+                      cachedLength="30"
+                      cachedName="NombreProducto"
+                      externalMetadataColumnId="Package\Incr Products\Insert new products to DM.Inputs[Entrada de destino de ADO NET].ExternalColumns[NombreProducto]"
+                      lineageId="Package\Incr Products\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[NombreProducto]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Incr Products\Insert new products to DM.Inputs[Entrada de destino de ADO NET].ExternalColumns[Producto_Key]"
+                      dataType="i4"
+                      name="Producto_Key" />
+                    <externalMetadataColumn
+                      refId="Package\Incr Products\Insert new products to DM.Inputs[Entrada de destino de ADO NET].ExternalColumns[IdProducto]"
+                      dataType="i4"
+                      name="IdProducto" />
+                    <externalMetadataColumn
+                      refId="Package\Incr Products\Insert new products to DM.Inputs[Entrada de destino de ADO NET].ExternalColumns[IdSubFamilia]"
+                      dataType="i4"
+                      name="IdSubFamilia" />
+                    <externalMetadataColumn
+                      refId="Package\Incr Products\Insert new products to DM.Inputs[Entrada de destino de ADO NET].ExternalColumns[IdFamilia]"
+                      dataType="i4"
+                      name="IdFamilia" />
+                    <externalMetadataColumn
+                      refId="Package\Incr Products\Insert new products to DM.Inputs[Entrada de destino de ADO NET].ExternalColumns[IdCategoria]"
+                      dataType="i4"
+                      name="IdCategoria" />
+                    <externalMetadataColumn
+                      refId="Package\Incr Products\Insert new products to DM.Inputs[Entrada de destino de ADO NET].ExternalColumns[IdRubro]"
+                      dataType="i4"
+                      name="IdRubro" />
+                    <externalMetadataColumn
+                      refId="Package\Incr Products\Insert new products to DM.Inputs[Entrada de destino de ADO NET].ExternalColumns[IdSeccion]"
+                      dataType="i4"
+                      name="IdSeccion" />
+                    <externalMetadataColumn
+                      refId="Package\Incr Products\Insert new products to DM.Inputs[Entrada de destino de ADO NET].ExternalColumns[NombreProducto]"
+                      dataType="wstr"
+                      length="50"
+                      name="NombreProducto" />
+                    <externalMetadataColumn
+                      refId="Package\Incr Products\Insert new products to DM.Inputs[Entrada de destino de ADO NET].ExternalColumns[NombreSubFamilia]"
+                      dataType="wstr"
+                      length="50"
+                      name="NombreSubFamilia" />
+                    <externalMetadataColumn
+                      refId="Package\Incr Products\Insert new products to DM.Inputs[Entrada de destino de ADO NET].ExternalColumns[NombreFamilia]"
+                      dataType="wstr"
+                      length="50"
+                      name="NombreFamilia" />
+                    <externalMetadataColumn
+                      refId="Package\Incr Products\Insert new products to DM.Inputs[Entrada de destino de ADO NET].ExternalColumns[NombreCategoria]"
+                      dataType="wstr"
+                      length="50"
+                      name="NombreCategoria" />
+                    <externalMetadataColumn
+                      refId="Package\Incr Products\Insert new products to DM.Inputs[Entrada de destino de ADO NET].ExternalColumns[NombreRubro]"
+                      dataType="wstr"
+                      length="50"
+                      name="NombreRubro" />
+                    <externalMetadataColumn
+                      refId="Package\Incr Products\Insert new products to DM.Inputs[Entrada de destino de ADO NET].ExternalColumns[NombreSeccion]"
+                      dataType="wstr"
+                      length="50"
+                      name="NombreSeccion" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Incr Products\Insert new products to DM.Outputs[Salida de error de destino de ADO NET]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de destino de ADO NET"
+                  synchronousInputId="Package\Incr Products\Insert new products to DM.Inputs[Entrada de destino de ADO NET]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Incr Products\Insert new products to DM.Outputs[Salida de error de destino de ADO NET].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Incr Products\Insert new products to DM.Outputs[Salida de error de destino de ADO NET].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Incr Products\Insert new products to DM.Outputs[Salida de error de destino de ADO NET].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Incr Products\Insert new products to DM.Outputs[Salida de error de destino de ADO NET].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Incr Products\List 1"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Ordenar;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;1"
+              description="Ordena los datos de entrada de manera ascendente o descendente cuando no es posible ordenarlos en su origen. Por ejemplo, se ordenan los datos de ventas por 'id. de cliente' antes de que se escriban en un archivo plano y se entreguen a otro departamento. Nota: no se recomienda realizar esta transformación para grandes flujos de datos."
+              name="List 1"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si la transformación Ordenar quita filas con valores de ordenación duplicados."
+                  name="EliminateDuplicates">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el número máximo de subprocesos que se deben usar para la ordenación."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Incr Products\List 1.Inputs[Entrada de ordenación]"
+                  name="Entrada de ordenación">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Incr Products\List 1.Inputs[Entrada de ordenación].Columns[idSeccion]"
+                      cachedDataType="i4"
+                      cachedName="idSeccion"
+                      lineageId="Package\Incr Products\Read Products Data Stage.Outputs[Salida de origen de ADO NET].Columns[idSeccion]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Incr Products\List 1.Inputs[Entrada de ordenación].Columns[NombreSeccion]"
+                      cachedDataType="wstr"
+                      cachedLength="30"
+                      cachedName="NombreSeccion"
+                      lineageId="Package\Incr Products\Read Products Data Stage.Outputs[Salida de origen de ADO NET].Columns[NombreSeccion]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Incr Products\List 1.Inputs[Entrada de ordenación].Columns[idRubro]"
+                      cachedDataType="i4"
+                      cachedName="idRubro"
+                      lineageId="Package\Incr Products\Read Products Data Stage.Outputs[Salida de origen de ADO NET].Columns[idRubro]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Incr Products\List 1.Inputs[Entrada de ordenación].Columns[NombreRubro]"
+                      cachedDataType="wstr"
+                      cachedLength="30"
+                      cachedName="NombreRubro"
+                      lineageId="Package\Incr Products\Read Products Data Stage.Outputs[Salida de origen de ADO NET].Columns[NombreRubro]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Incr Products\List 1.Inputs[Entrada de ordenación].Columns[idSubFamilia]"
+                      cachedDataType="i4"
+                      cachedName="idSubFamilia"
+                      lineageId="Package\Incr Products\Read Products Data Stage.Outputs[Salida de origen de ADO NET].Columns[idSubFamilia]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Incr Products\List 1.Inputs[Entrada de ordenación].Columns[NombreSubFamilia]"
+                      cachedDataType="wstr"
+                      cachedLength="30"
+                      cachedName="NombreSubFamilia"
+                      lineageId="Package\Incr Products\Read Products Data Stage.Outputs[Salida de origen de ADO NET].Columns[NombreSubFamilia]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Incr Products\List 1.Inputs[Entrada de ordenación].Columns[idFamilia]"
+                      cachedDataType="i4"
+                      cachedName="idFamilia"
+                      lineageId="Package\Incr Products\Read Products Data Stage.Outputs[Salida de origen de ADO NET].Columns[idFamilia]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Incr Products\List 1.Inputs[Entrada de ordenación].Columns[NombreFamilia]"
+                      cachedDataType="wstr"
+                      cachedLength="30"
+                      cachedName="NombreFamilia"
+                      lineageId="Package\Incr Products\Read Products Data Stage.Outputs[Salida de origen de ADO NET].Columns[NombreFamilia]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Incr Products\List 1.Inputs[Entrada de ordenación].Columns[idCategoria]"
+                      cachedDataType="i4"
+                      cachedName="idCategoria"
+                      lineageId="Package\Incr Products\Read Products Data Stage.Outputs[Salida de origen de ADO NET].Columns[idCategoria]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Incr Products\List 1.Inputs[Entrada de ordenación].Columns[NombreCategoria]"
+                      cachedDataType="wstr"
+                      cachedLength="30"
+                      cachedName="NombreCategoria"
+                      lineageId="Package\Incr Products\Read Products Data Stage.Outputs[Salida de origen de ADO NET].Columns[NombreCategoria]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Incr Products\List 1.Inputs[Entrada de ordenación].Columns[idProducto]"
+                      cachedDataType="i4"
+                      cachedName="idProducto"
+                      lineageId="Package\Incr Products\Read Products Data Stage.Outputs[Salida de origen de ADO NET].Columns[idProducto]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Incr Products\List 1.Inputs[Entrada de ordenación].Columns[NombreProducto]"
+                      cachedDataType="wstr"
+                      cachedLength="30"
+                      cachedName="NombreProducto"
+                      lineageId="Package\Incr Products\Read Products Data Stage.Outputs[Salida de origen de ADO NET].Columns[NombreProducto]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Incr Products\List 1.Outputs[Salida de ordenación]"
+                  isSorted="true"
+                  name="Salida de ordenación">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Incr Products\List 1.Outputs[Salida de ordenación].Columns[idSeccion]"
+                      dataType="i4"
+                      lineageId="Package\Incr Products\List 1.Outputs[Salida de ordenación].Columns[idSeccion]"
+                      name="idSeccion">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\Incr Products\Read Products Data Stage.Outputs[Salida de origen de ADO NET].Columns[idSeccion]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Incr Products\List 1.Outputs[Salida de ordenación].Columns[NombreSeccion]"
+                      dataType="wstr"
+                      length="30"
+                      lineageId="Package\Incr Products\List 1.Outputs[Salida de ordenación].Columns[NombreSeccion]"
+                      name="NombreSeccion">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\Incr Products\Read Products Data Stage.Outputs[Salida de origen de ADO NET].Columns[NombreSeccion]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Incr Products\List 1.Outputs[Salida de ordenación].Columns[idRubro]"
+                      dataType="i4"
+                      lineageId="Package\Incr Products\List 1.Outputs[Salida de ordenación].Columns[idRubro]"
+                      name="idRubro">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\Incr Products\Read Products Data Stage.Outputs[Salida de origen de ADO NET].Columns[idRubro]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Incr Products\List 1.Outputs[Salida de ordenación].Columns[NombreRubro]"
+                      dataType="wstr"
+                      length="30"
+                      lineageId="Package\Incr Products\List 1.Outputs[Salida de ordenación].Columns[NombreRubro]"
+                      name="NombreRubro">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\Incr Products\Read Products Data Stage.Outputs[Salida de origen de ADO NET].Columns[NombreRubro]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Incr Products\List 1.Outputs[Salida de ordenación].Columns[idSubFamilia]"
+                      dataType="i4"
+                      lineageId="Package\Incr Products\List 1.Outputs[Salida de ordenación].Columns[idSubFamilia]"
+                      name="idSubFamilia">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\Incr Products\Read Products Data Stage.Outputs[Salida de origen de ADO NET].Columns[idSubFamilia]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Incr Products\List 1.Outputs[Salida de ordenación].Columns[NombreSubFamilia]"
+                      dataType="wstr"
+                      length="30"
+                      lineageId="Package\Incr Products\List 1.Outputs[Salida de ordenación].Columns[NombreSubFamilia]"
+                      name="NombreSubFamilia">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\Incr Products\Read Products Data Stage.Outputs[Salida de origen de ADO NET].Columns[NombreSubFamilia]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Incr Products\List 1.Outputs[Salida de ordenación].Columns[idFamilia]"
+                      dataType="i4"
+                      lineageId="Package\Incr Products\List 1.Outputs[Salida de ordenación].Columns[idFamilia]"
+                      name="idFamilia">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\Incr Products\Read Products Data Stage.Outputs[Salida de origen de ADO NET].Columns[idFamilia]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Incr Products\List 1.Outputs[Salida de ordenación].Columns[NombreFamilia]"
+                      dataType="wstr"
+                      length="30"
+                      lineageId="Package\Incr Products\List 1.Outputs[Salida de ordenación].Columns[NombreFamilia]"
+                      name="NombreFamilia">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\Incr Products\Read Products Data Stage.Outputs[Salida de origen de ADO NET].Columns[NombreFamilia]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Incr Products\List 1.Outputs[Salida de ordenación].Columns[idCategoria]"
+                      dataType="i4"
+                      lineageId="Package\Incr Products\List 1.Outputs[Salida de ordenación].Columns[idCategoria]"
+                      name="idCategoria">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\Incr Products\Read Products Data Stage.Outputs[Salida de origen de ADO NET].Columns[idCategoria]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Incr Products\List 1.Outputs[Salida de ordenación].Columns[NombreCategoria]"
+                      dataType="wstr"
+                      length="30"
+                      lineageId="Package\Incr Products\List 1.Outputs[Salida de ordenación].Columns[NombreCategoria]"
+                      name="NombreCategoria">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\Incr Products\Read Products Data Stage.Outputs[Salida de origen de ADO NET].Columns[NombreCategoria]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Incr Products\List 1.Outputs[Salida de ordenación].Columns[idProducto]"
+                      dataType="i4"
+                      lineageId="Package\Incr Products\List 1.Outputs[Salida de ordenación].Columns[idProducto]"
+                      name="idProducto"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\Incr Products\Read Products Data Stage.Outputs[Salida de origen de ADO NET].Columns[idProducto]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Incr Products\List 1.Outputs[Salida de ordenación].Columns[NombreProducto]"
+                      dataType="wstr"
+                      length="30"
+                      lineageId="Package\Incr Products\List 1.Outputs[Salida de ordenación].Columns[NombreProducto]"
+                      name="NombreProducto">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\Incr Products\Read Products Data Stage.Outputs[Salida de origen de ADO NET].Columns[NombreProducto]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Incr Products\List 2"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Ordenar;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;1"
+              description="Ordena los datos de entrada de manera ascendente o descendente cuando no es posible ordenarlos en su origen. Por ejemplo, se ordenan los datos de ventas por 'id. de cliente' antes de que se escriban en un archivo plano y se entreguen a otro departamento. Nota: no se recomienda realizar esta transformación para grandes flujos de datos."
+              name="List 2"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si la transformación Ordenar quita filas con valores de ordenación duplicados."
+                  name="EliminateDuplicates">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el número máximo de subprocesos que se deben usar para la ordenación."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Incr Products\List 2.Inputs[Entrada de ordenación]"
+                  name="Entrada de ordenación">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Incr Products\List 2.Inputs[Entrada de ordenación].Columns[IdProducto]"
+                      cachedDataType="i4"
+                      cachedName="IdProducto"
+                      lineageId="Package\Incr Products\Read Product Data Mart.Outputs[Salida de origen de ADO NET].Columns[IdProducto]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Incr Products\List 2.Outputs[Salida de ordenación]"
+                  isSorted="true"
+                  name="Salida de ordenación">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Incr Products\List 2.Outputs[Salida de ordenación].Columns[IdProducto]"
+                      dataType="i4"
+                      lineageId="Package\Incr Products\List 2.Outputs[Salida de ordenación].Columns[IdProducto]"
+                      name="IdProducto"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\Incr Products\Read Product Data Mart.Outputs[Salida de origen de ADO NET].Columns[IdProducto]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Incr Products\Read Product Data Mart"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Consume datos de SQL Server, OLE DB, ODBC u Oracle mediante el correspondiente proveedor de datos de .NET Framework. Se usa una instrucción Transact-SQL para definir el conjunto de resultados. Por ejemplo, se extraen datos de SQL Server con el proveedor de datos de .NET Framework para SQL Server.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
+              description="Consume datos de SQL Server, OLE DB, ODBC u Oracle mediante el correspondiente proveedor de datos de .NET Framework. Se usa una instrucción Transact-SQL para definir el conjunto de resultados. Por ejemplo, se extraen datos de SQL Server con el proveedor de datos de .NET Framework para SQL Server."
+              name="Read Product Data Mart"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Especifica la instrucción SQL utilizada por el componente para extraer datos."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT IdProducto
+FROM   Dim_Producto</property>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si se debe permitir que columnas externas que no sean de cadenas se conviertan implícitamente en cadenas en las columnas de salida."
+                  name="AllowImplicitStringConversion">true</property>
+                <property
+                  dataType="System.String"
+                  description="Nombre de la tabla de la base de datos de origen."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especificar el modo de recuperar información de columnas externas"
+                  name="AccessMode"
+                  typeConverter="Microsoft.SqlServer.Dts.Pipeline.DataReaderSourceAdapter+EnumToStringConverter">2</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.DataReaderSourceAdapter</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Incr Products\Read Product Data Mart.Connections[IDbConnection]"
+                  connectionManagerID="{35848EDC-AA0A-4BF7-BC34-974273C32177}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-VC68NVL.VentasDM]"
+                  description="Administrador de conexiones administrado"
+                  name="IDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Incr Products\Read Product Data Mart.Outputs[Salida de origen de ADO NET]"
+                  name="Salida de origen de ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Incr Products\Read Product Data Mart.Outputs[Salida de origen de ADO NET].Columns[IdProducto]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Incr Products\Read Product Data Mart.Outputs[Salida de origen de ADO NET].ExternalColumns[IdProducto]"
+                      lineageId="Package\Incr Products\Read Product Data Mart.Outputs[Salida de origen de ADO NET].Columns[IdProducto]"
+                      name="IdProducto"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Incr Products\Read Product Data Mart.Outputs[Salida de origen de ADO NET].ExternalColumns[IdProducto]"
+                      dataType="i4"
+                      name="IdProducto" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Incr Products\Read Product Data Mart.Outputs[Salida de error de origen de ADO NET]"
+                  isErrorOut="true"
+                  name="Salida de error de origen de ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Incr Products\Read Product Data Mart.Outputs[Salida de error de origen de ADO NET].Columns[IdProducto]"
+                      dataType="i4"
+                      lineageId="Package\Incr Products\Read Product Data Mart.Outputs[Salida de error de origen de ADO NET].Columns[IdProducto]"
+                      name="IdProducto" />
+                    <outputColumn
+                      refId="Package\Incr Products\Read Product Data Mart.Outputs[Salida de error de origen de ADO NET].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Incr Products\Read Product Data Mart.Outputs[Salida de error de origen de ADO NET].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Incr Products\Read Product Data Mart.Outputs[Salida de error de origen de ADO NET].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Incr Products\Read Product Data Mart.Outputs[Salida de error de origen de ADO NET].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Incr Products\Read Products Data Stage"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Consume datos de SQL Server, OLE DB, ODBC u Oracle mediante el correspondiente proveedor de datos de .NET Framework. Se usa una instrucción Transact-SQL para definir el conjunto de resultados. Por ejemplo, se extraen datos de SQL Server con el proveedor de datos de .NET Framework para SQL Server.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
+              description="Consume datos de SQL Server, OLE DB, ODBC u Oracle mediante el correspondiente proveedor de datos de .NET Framework. Se usa una instrucción Transact-SQL para definir el conjunto de resultados. Por ejemplo, se extraen datos de SQL Server con el proveedor de datos de .NET Framework para SQL Server."
+              name="Read Products Data Stage"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Especifica la instrucción SQL utilizada por el componente para extraer datos."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT Seccion.idSeccion, Seccion.NombreSeccion, Rubro.idRubro, Rubro.NombreRubro, SubFamilia.idSubFamilia, SubFamilia.NombreSubFamilia, Familia.idFamilia, Familia.NombreFamilia, Categoria.idCategoria, Categoria.NombreCategoria, Producto.idProducto, 
+             Producto.NombreProducto
+FROM   Categoria INNER JOIN
+             Familia ON Categoria.idCategoria = Familia.idCategoria INNER JOIN
+             Rubro ON Categoria.idRubro = Rubro.idRubro INNER JOIN
+             Seccion ON Rubro.idSeccion = Seccion.idSeccion INNER JOIN
+             SubFamilia ON Familia.idFamilia = SubFamilia.idFamilia INNER JOIN
+             Producto ON SubFamilia.idSubFamilia = Producto.idSubFamilia</property>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si se debe permitir que columnas externas que no sean de cadenas se conviertan implícitamente en cadenas en las columnas de salida."
+                  name="AllowImplicitStringConversion">true</property>
+                <property
+                  dataType="System.String"
+                  description="Nombre de la tabla de la base de datos de origen."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especificar el modo de recuperar información de columnas externas"
+                  name="AccessMode"
+                  typeConverter="Microsoft.SqlServer.Dts.Pipeline.DataReaderSourceAdapter+EnumToStringConverter">2</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.DataReaderSourceAdapter</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Incr Products\Read Products Data Stage.Connections[IDbConnection]"
+                  connectionManagerID="{0CBD5963-2C5F-4FC1-936B-5D55148A1E39}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-VC68NVL.Venta]"
+                  description="Administrador de conexiones administrado"
+                  name="IDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Incr Products\Read Products Data Stage.Outputs[Salida de origen de ADO NET]"
+                  name="Salida de origen de ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Incr Products\Read Products Data Stage.Outputs[Salida de origen de ADO NET].Columns[idSeccion]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Incr Products\Read Products Data Stage.Outputs[Salida de origen de ADO NET].ExternalColumns[idSeccion]"
+                      lineageId="Package\Incr Products\Read Products Data Stage.Outputs[Salida de origen de ADO NET].Columns[idSeccion]"
+                      name="idSeccion"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Incr Products\Read Products Data Stage.Outputs[Salida de origen de ADO NET].Columns[NombreSeccion]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Incr Products\Read Products Data Stage.Outputs[Salida de origen de ADO NET].ExternalColumns[NombreSeccion]"
+                      length="30"
+                      lineageId="Package\Incr Products\Read Products Data Stage.Outputs[Salida de origen de ADO NET].Columns[NombreSeccion]"
+                      name="NombreSeccion"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Incr Products\Read Products Data Stage.Outputs[Salida de origen de ADO NET].Columns[idRubro]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Incr Products\Read Products Data Stage.Outputs[Salida de origen de ADO NET].ExternalColumns[idRubro]"
+                      lineageId="Package\Incr Products\Read Products Data Stage.Outputs[Salida de origen de ADO NET].Columns[idRubro]"
+                      name="idRubro"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Incr Products\Read Products Data Stage.Outputs[Salida de origen de ADO NET].Columns[NombreRubro]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Incr Products\Read Products Data Stage.Outputs[Salida de origen de ADO NET].ExternalColumns[NombreRubro]"
+                      length="30"
+                      lineageId="Package\Incr Products\Read Products Data Stage.Outputs[Salida de origen de ADO NET].Columns[NombreRubro]"
+                      name="NombreRubro"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Incr Products\Read Products Data Stage.Outputs[Salida de origen de ADO NET].Columns[idSubFamilia]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Incr Products\Read Products Data Stage.Outputs[Salida de origen de ADO NET].ExternalColumns[idSubFamilia]"
+                      lineageId="Package\Incr Products\Read Products Data Stage.Outputs[Salida de origen de ADO NET].Columns[idSubFamilia]"
+                      name="idSubFamilia"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Incr Products\Read Products Data Stage.Outputs[Salida de origen de ADO NET].Columns[NombreSubFamilia]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Incr Products\Read Products Data Stage.Outputs[Salida de origen de ADO NET].ExternalColumns[NombreSubFamilia]"
+                      length="30"
+                      lineageId="Package\Incr Products\Read Products Data Stage.Outputs[Salida de origen de ADO NET].Columns[NombreSubFamilia]"
+                      name="NombreSubFamilia"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Incr Products\Read Products Data Stage.Outputs[Salida de origen de ADO NET].Columns[idFamilia]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Incr Products\Read Products Data Stage.Outputs[Salida de origen de ADO NET].ExternalColumns[idFamilia]"
+                      lineageId="Package\Incr Products\Read Products Data Stage.Outputs[Salida de origen de ADO NET].Columns[idFamilia]"
+                      name="idFamilia"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Incr Products\Read Products Data Stage.Outputs[Salida de origen de ADO NET].Columns[NombreFamilia]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Incr Products\Read Products Data Stage.Outputs[Salida de origen de ADO NET].ExternalColumns[NombreFamilia]"
+                      length="30"
+                      lineageId="Package\Incr Products\Read Products Data Stage.Outputs[Salida de origen de ADO NET].Columns[NombreFamilia]"
+                      name="NombreFamilia"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Incr Products\Read Products Data Stage.Outputs[Salida de origen de ADO NET].Columns[idCategoria]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Incr Products\Read Products Data Stage.Outputs[Salida de origen de ADO NET].ExternalColumns[idCategoria]"
+                      lineageId="Package\Incr Products\Read Products Data Stage.Outputs[Salida de origen de ADO NET].Columns[idCategoria]"
+                      name="idCategoria"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Incr Products\Read Products Data Stage.Outputs[Salida de origen de ADO NET].Columns[NombreCategoria]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Incr Products\Read Products Data Stage.Outputs[Salida de origen de ADO NET].ExternalColumns[NombreCategoria]"
+                      length="30"
+                      lineageId="Package\Incr Products\Read Products Data Stage.Outputs[Salida de origen de ADO NET].Columns[NombreCategoria]"
+                      name="NombreCategoria"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Incr Products\Read Products Data Stage.Outputs[Salida de origen de ADO NET].Columns[idProducto]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Incr Products\Read Products Data Stage.Outputs[Salida de origen de ADO NET].ExternalColumns[idProducto]"
+                      lineageId="Package\Incr Products\Read Products Data Stage.Outputs[Salida de origen de ADO NET].Columns[idProducto]"
+                      name="idProducto"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Incr Products\Read Products Data Stage.Outputs[Salida de origen de ADO NET].Columns[NombreProducto]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Incr Products\Read Products Data Stage.Outputs[Salida de origen de ADO NET].ExternalColumns[NombreProducto]"
+                      length="30"
+                      lineageId="Package\Incr Products\Read Products Data Stage.Outputs[Salida de origen de ADO NET].Columns[NombreProducto]"
+                      name="NombreProducto"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Incr Products\Read Products Data Stage.Outputs[Salida de origen de ADO NET].ExternalColumns[idSeccion]"
+                      dataType="i4"
+                      name="idSeccion" />
+                    <externalMetadataColumn
+                      refId="Package\Incr Products\Read Products Data Stage.Outputs[Salida de origen de ADO NET].ExternalColumns[NombreSeccion]"
+                      dataType="wstr"
+                      length="30"
+                      name="NombreSeccion" />
+                    <externalMetadataColumn
+                      refId="Package\Incr Products\Read Products Data Stage.Outputs[Salida de origen de ADO NET].ExternalColumns[idRubro]"
+                      dataType="i4"
+                      name="idRubro" />
+                    <externalMetadataColumn
+                      refId="Package\Incr Products\Read Products Data Stage.Outputs[Salida de origen de ADO NET].ExternalColumns[NombreRubro]"
+                      dataType="wstr"
+                      length="30"
+                      name="NombreRubro" />
+                    <externalMetadataColumn
+                      refId="Package\Incr Products\Read Products Data Stage.Outputs[Salida de origen de ADO NET].ExternalColumns[idSubFamilia]"
+                      dataType="i4"
+                      name="idSubFamilia" />
+                    <externalMetadataColumn
+                      refId="Package\Incr Products\Read Products Data Stage.Outputs[Salida de origen de ADO NET].ExternalColumns[NombreSubFamilia]"
+                      dataType="wstr"
+                      length="30"
+                      name="NombreSubFamilia" />
+                    <externalMetadataColumn
+                      refId="Package\Incr Products\Read Products Data Stage.Outputs[Salida de origen de ADO NET].ExternalColumns[idFamilia]"
+                      dataType="i4"
+                      name="idFamilia" />
+                    <externalMetadataColumn
+                      refId="Package\Incr Products\Read Products Data Stage.Outputs[Salida de origen de ADO NET].ExternalColumns[NombreFamilia]"
+                      dataType="wstr"
+                      length="30"
+                      name="NombreFamilia" />
+                    <externalMetadataColumn
+                      refId="Package\Incr Products\Read Products Data Stage.Outputs[Salida de origen de ADO NET].ExternalColumns[idCategoria]"
+                      dataType="i4"
+                      name="idCategoria" />
+                    <externalMetadataColumn
+                      refId="Package\Incr Products\Read Products Data Stage.Outputs[Salida de origen de ADO NET].ExternalColumns[NombreCategoria]"
+                      dataType="wstr"
+                      length="30"
+                      name="NombreCategoria" />
+                    <externalMetadataColumn
+                      refId="Package\Incr Products\Read Products Data Stage.Outputs[Salida de origen de ADO NET].ExternalColumns[idProducto]"
+                      dataType="i4"
+                      name="idProducto" />
+                    <externalMetadataColumn
+                      refId="Package\Incr Products\Read Products Data Stage.Outputs[Salida de origen de ADO NET].ExternalColumns[NombreProducto]"
+                      dataType="wstr"
+                      length="30"
+                      name="NombreProducto" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Incr Products\Read Products Data Stage.Outputs[Salida de error de origen de ADO NET]"
+                  isErrorOut="true"
+                  name="Salida de error de origen de ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Incr Products\Read Products Data Stage.Outputs[Salida de error de origen de ADO NET].Columns[idSeccion]"
+                      dataType="i4"
+                      lineageId="Package\Incr Products\Read Products Data Stage.Outputs[Salida de error de origen de ADO NET].Columns[idSeccion]"
+                      name="idSeccion" />
+                    <outputColumn
+                      refId="Package\Incr Products\Read Products Data Stage.Outputs[Salida de error de origen de ADO NET].Columns[NombreSeccion]"
+                      dataType="wstr"
+                      length="30"
+                      lineageId="Package\Incr Products\Read Products Data Stage.Outputs[Salida de error de origen de ADO NET].Columns[NombreSeccion]"
+                      name="NombreSeccion" />
+                    <outputColumn
+                      refId="Package\Incr Products\Read Products Data Stage.Outputs[Salida de error de origen de ADO NET].Columns[idRubro]"
+                      dataType="i4"
+                      lineageId="Package\Incr Products\Read Products Data Stage.Outputs[Salida de error de origen de ADO NET].Columns[idRubro]"
+                      name="idRubro" />
+                    <outputColumn
+                      refId="Package\Incr Products\Read Products Data Stage.Outputs[Salida de error de origen de ADO NET].Columns[NombreRubro]"
+                      dataType="wstr"
+                      length="30"
+                      lineageId="Package\Incr Products\Read Products Data Stage.Outputs[Salida de error de origen de ADO NET].Columns[NombreRubro]"
+                      name="NombreRubro" />
+                    <outputColumn
+                      refId="Package\Incr Products\Read Products Data Stage.Outputs[Salida de error de origen de ADO NET].Columns[idSubFamilia]"
+                      dataType="i4"
+                      lineageId="Package\Incr Products\Read Products Data Stage.Outputs[Salida de error de origen de ADO NET].Columns[idSubFamilia]"
+                      name="idSubFamilia" />
+                    <outputColumn
+                      refId="Package\Incr Products\Read Products Data Stage.Outputs[Salida de error de origen de ADO NET].Columns[NombreSubFamilia]"
+                      dataType="wstr"
+                      length="30"
+                      lineageId="Package\Incr Products\Read Products Data Stage.Outputs[Salida de error de origen de ADO NET].Columns[NombreSubFamilia]"
+                      name="NombreSubFamilia" />
+                    <outputColumn
+                      refId="Package\Incr Products\Read Products Data Stage.Outputs[Salida de error de origen de ADO NET].Columns[idFamilia]"
+                      dataType="i4"
+                      lineageId="Package\Incr Products\Read Products Data Stage.Outputs[Salida de error de origen de ADO NET].Columns[idFamilia]"
+                      name="idFamilia" />
+                    <outputColumn
+                      refId="Package\Incr Products\Read Products Data Stage.Outputs[Salida de error de origen de ADO NET].Columns[NombreFamilia]"
+                      dataType="wstr"
+                      length="30"
+                      lineageId="Package\Incr Products\Read Products Data Stage.Outputs[Salida de error de origen de ADO NET].Columns[NombreFamilia]"
+                      name="NombreFamilia" />
+                    <outputColumn
+                      refId="Package\Incr Products\Read Products Data Stage.Outputs[Salida de error de origen de ADO NET].Columns[idCategoria]"
+                      dataType="i4"
+                      lineageId="Package\Incr Products\Read Products Data Stage.Outputs[Salida de error de origen de ADO NET].Columns[idCategoria]"
+                      name="idCategoria" />
+                    <outputColumn
+                      refId="Package\Incr Products\Read Products Data Stage.Outputs[Salida de error de origen de ADO NET].Columns[NombreCategoria]"
+                      dataType="wstr"
+                      length="30"
+                      lineageId="Package\Incr Products\Read Products Data Stage.Outputs[Salida de error de origen de ADO NET].Columns[NombreCategoria]"
+                      name="NombreCategoria" />
+                    <outputColumn
+                      refId="Package\Incr Products\Read Products Data Stage.Outputs[Salida de error de origen de ADO NET].Columns[idProducto]"
+                      dataType="i4"
+                      lineageId="Package\Incr Products\Read Products Data Stage.Outputs[Salida de error de origen de ADO NET].Columns[idProducto]"
+                      name="idProducto" />
+                    <outputColumn
+                      refId="Package\Incr Products\Read Products Data Stage.Outputs[Salida de error de origen de ADO NET].Columns[NombreProducto]"
+                      dataType="wstr"
+                      length="30"
+                      lineageId="Package\Incr Products\Read Products Data Stage.Outputs[Salida de error de origen de ADO NET].Columns[NombreProducto]"
+                      name="NombreProducto" />
+                    <outputColumn
+                      refId="Package\Incr Products\Read Products Data Stage.Outputs[Salida de error de origen de ADO NET].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Incr Products\Read Products Data Stage.Outputs[Salida de error de origen de ADO NET].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Incr Products\Read Products Data Stage.Outputs[Salida de error de origen de ADO NET].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Incr Products\Read Products Data Stage.Outputs[Salida de error de origen de ADO NET].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Incr Products.Paths[new entry]"
+              endId="Package\Incr Products\Insert new products to DM.Inputs[Entrada de destino de ADO NET]"
+              name="new entry"
+              startId="Package\Incr Products\División condicional.Outputs[new entry]" />
+            <path
+              refId="Package\Incr Products.Paths[Salida de combinación de mezcla]"
+              endId="Package\Incr Products\División condicional.Inputs[Entrada de división condicional]"
+              name="Salida de combinación de mezcla"
+              startId="Package\Incr Products\Combinación de mezcla.Outputs[Salida de combinación de mezcla]" />
+            <path
+              refId="Package\Incr Products.Paths[Salida de ordenación]"
+              endId="Package\Incr Products\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla]"
+              name="Salida de ordenación"
+              startId="Package\Incr Products\List 1.Outputs[Salida de ordenación]" />
+            <path
+              refId="Package\Incr Products.Paths[Salida de ordenación1]"
+              endId="Package\Incr Products\Combinación de mezcla.Inputs[Entrada derecha de combinación de mezcla]"
+              name="Salida de ordenación"
+              startId="Package\Incr Products\List 2.Outputs[Salida de ordenación]" />
+            <path
+              refId="Package\Incr Products.Paths[Salida de origen de ADO NET]"
+              endId="Package\Incr Products\List 1.Inputs[Entrada de ordenación]"
+              name="Salida de origen de ADO NET"
+              startId="Package\Incr Products\Read Products Data Stage.Outputs[Salida de origen de ADO NET]" />
+            <path
+              refId="Package\Incr Products.Paths[Salida de origen de ADO NET1]"
+              endId="Package\Incr Products\List 2.Inputs[Entrada de ordenación]"
+              name="Salida de origen de ADO NET"
+              startId="Package\Incr Products\Read Product Data Mart.Outputs[Salida de origen de ADO NET]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Esta sección CDATA contiene la información de diseño del paquete. Esta sección incluye información como, por ejemplo, las coordenadas (x,y), el ancho y el alto.-->
+<!--Si edita manualmente esta sección y comete un error, puede eliminarlo. -->
+<!--El paquete podrá cargarse normalmente, pero se perderá la información de diseño anterior y el diseñador reorganizará los elementos automáticamente en la superficie de diseño.-->
+<Objects
+  Version="8">
+  <!--Cada uno de los nodos siguientes contiene propiedades que no afectan al comportamiento en tiempo de ejecución.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="142.666666666667,42.6666666666667"
+          Id="Package\Incr Products"
+          TopLeft="187.499997206032,202.149996385276" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Incr Products">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="202.666666666667,42.6666666666667"
+          Id="Package\Incr Products\Read Products Data Stage"
+          TopLeft="85.6249987240881,115.049997942746" />
+        <NodeLayout
+          Size="192,42.6666666666667"
+          Id="Package\Incr Products\Read Product Data Mart"
+          TopLeft="411.249993871898,135.199997582436" />
+        <NodeLayout
+          Size="104.666666666667,42.6666666666667"
+          Id="Package\Incr Products\List 1"
+          TopLeft="147.499997802079,228.799995908737" />
+        <EdgeLayout
+          Id="Package\Incr Products.Paths[Salida de origen de ADO NET]"
+          TopLeft="186.958332057421,157.716664609412">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="12.8749990779908,71.0833312993248"
+              Start="0,0"
+              End="12.8749990779908,63.5833312993248">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.5416656496624" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,31.5416656496624"
+                    Point2="0,35.5416656496624"
+                    Point3="4,35.5416656496624" />
+                  <mssgle:LineSegment
+                    End="8.87499907799076,35.5416656496624" />
+                  <mssgle:CubicBezierSegment
+                    Point1="8.87499907799076,35.5416656496624"
+                    Point2="12.8749990779908,35.5416656496624"
+                    Point3="12.8749990779908,39.5416656496624" />
+                  <mssgle:LineSegment
+                    End="12.8749990779908,63.5833312993248" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="104.666666666667,42.6666666666667"
+          Id="Package\Incr Products\List 2"
+          TopLeft="444.999993368983,261.983328672548" />
+        <EdgeLayout
+          Id="Package\Incr Products.Paths[Salida de origen de ADO NET1]"
+          TopLeft="507.249993871898,177.866664249102">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-9.91666716958076,84.1166644234459"
+              Start="0,0"
+              End="-9.91666716958076,76.6166644234459">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,38.058332211723" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,38.058332211723"
+                    Point2="0,42.058332211723"
+                    Point3="-4,42.058332211723" />
+                  <mssgle:LineSegment
+                    End="-5.91666716958076,42.058332211723" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-5.91666716958076,42.058332211723"
+                    Point2="-9.91666716958076,42.058332211723"
+                    Point3="-9.91666716958076,46.058332211723" />
+                  <mssgle:LineSegment
+                    End="-9.91666716958076,76.6166644234459" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="190.666666666667,42.6666666666667"
+          Id="Package\Incr Products\Combinación de mezcla"
+          TopLeft="266.874996023253,345.999994421005" />
+        <EdgeLayout
+          Id="Package\Incr Products.Paths[Salida de ordenación]"
+          TopLeft="199.833331135412,271.466662575404">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="162.374998221174,74.5333318456015"
+              Start="0,0"
+              End="162.374998221174,67.0333318456015">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,33.2666659228007" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,33.2666659228007"
+                    Point2="0,37.2666659228007"
+                    Point3="4,37.2666659228007" />
+                  <mssgle:LineSegment
+                    End="158.374998221174,37.2666659228007" />
+                  <mssgle:CubicBezierSegment
+                    Point1="158.374998221174,37.2666659228007"
+                    Point2="162.374998221174,37.2666659228007"
+                    Point3="162.374998221174,41.2666659228007" />
+                  <mssgle:LineSegment
+                    End="162.374998221174,67.0333318456015" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Incr Products.Paths[Salida de ordenación1]"
+          TopLeft="497.333326702317,304.649995339215">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-104.680552901286,41.3499990817904"
+              Start="0,0"
+              End="-104.680552901286,33.8499990817904">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.6035362081666" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.6035362081666"
+                    Point2="0,24.6035362081666"
+                    Point3="-4,24.6035362081666" />
+                  <mssgle:LineSegment
+                    End="-100.680552901286,24.6035362081666" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-100.680552901286,24.6035362081666"
+                    Point2="-104.680552901286,24.6035362081666"
+                    Point3="-104.680552901286,28.6035362081666" />
+                  <mssgle:LineSegment
+                    End="-104.680552901286,33.8499990817904" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="172,42.6666666666667"
+          Id="Package\Incr Products\División condicional"
+          TopLeft="270.624995967373,439.099994258285" />
+        <EdgeLayout
+          Id="Package\Incr Products.Paths[Salida de combinación de mezcla]"
+          TopLeft="359.41666266198,388.666661087672">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,50.4333331706126"
+              Start="0,0"
+              End="0,42.9333331706126">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,42.9333331706126" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="205.333333333334,42.6666666666667"
+          Id="Package\Incr Products\Insert new products to DM"
+          TopLeft="301.249995511025,534.383327556749" />
+        <EdgeLayout
+          Id="Package\Incr Products.Paths[new entry]"
+          TopLeft="356.624995967373,481.766660924951">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="47.2916662103185,52.616666631798"
+              Start="0,0"
+              End="47.2916662103185,45.116666631798">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,22.308333315899" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,22.308333315899"
+                    Point2="0,26.308333315899"
+                    Point3="4,26.308333315899" />
+                  <mssgle:LineSegment
+                    End="43.2916662103185,26.308333315899" />
+                  <mssgle:CubicBezierSegment
+                    Point1="43.2916662103185,26.308333315899"
+                    Point2="47.2916662103185,26.308333315899"
+                    Point3="47.2916662103185,30.308333315899" />
+                  <mssgle:LineSegment
+                    End="47.2916662103185,45.116666631798" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0.917278417659254,31.308333315899,45.457109375,11.033203125"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Incr Products\Read Products Data Stage">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Incr Products\Read Product Data Mart">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Incr Products\Insert new products to DM">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
